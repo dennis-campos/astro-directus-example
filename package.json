@@ -1,0 +1,25 @@
+{
+  "name": "astro-directus",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "cms:bootstrap": "directus bootstrap",
+    "cms:dev": "directus start",
+    "cms:seed": "pnpm tsx ./src/lib/seeds.ts",
+    "directus": "directus start"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@directus/sdk": "^16.0.1",
+    "astro": "^4.9.2",
+    "directus": "^10.11.1",
+    "pg": "^8.11.5",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5"
+  }
+}
