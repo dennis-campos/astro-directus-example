@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "extensions:build": "cd extensions/directus-operation-bulk-sendgrid && pnpm install && pnpm run build",
-    "build": "pnpm extensions:build && astro check && astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "cms:bootstrap": "directus bootstrap",
