@@ -1,0 +1,46 @@
+---
+import { readItems } from "@directus/sdk";
+import { client } from "../lib/directus";
+import { formatDateToLocale } from "../utils";
+
+const events = await client.request(
+  readItems("events", {
+    fields: ["id", "title", "description", "dateOfEvent", "location"],
+  })
+);
+---
+
+<div class="pt-10 pb-20 px-10">
+  <h2 class="text-6xl font-bold mb-4">Events</h2>
+  <div class="space-y-10">
+    {
+      events.map((event) => (
+        <div class="flex w-[700px] shadow-lg rounded-lg">
+          <div class="flex flex-col justify-center items-center p-4 bg-zinc-200">
+            <p class="font-bold text-3xl">
+              {formatDateToLocale(event.dateOfEvent).month}
+            </p>
+            <p class="font-bold text-4xl">
+              {formatDateToLocale(event.dateOfEvent).day}
+            </p>
+            <p class="font-bold text-3xl">
+              {formatDateToLocale(event.dateOfEvent).time}
+            </p>
+          </div>
+
+          <div class="flex flex-col bg-zinc-50 p-4 space-y-7 w-full">
+            <h2 class="text-3xl font-bold">{event.title}</h2>
+            <p>{event.description}</p>
+
+            <div class="flex justify-between">
+              <p class="font-bold">{event.location}</p>
+              <a href={`/event/${event.id}`} class="text-blue-500">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

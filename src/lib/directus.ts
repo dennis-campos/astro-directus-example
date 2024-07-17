@@ -1,37 +1,44 @@
 import { createDirectus, rest } from "@directus/sdk";
 
-export interface Global {
+export type Global = {
   title: string;
   description: string;
-}
+};
 
-export interface SuperheroProfile {
+export type Event = {
+  id: number;
+  title: string;
+  description: string;
+  dateOfEvent: Date;
+  location: string;
+};
+
+export type Ticket = {
+  id: number;
+  eventId: Event["id"];
+  type: string;
+  price: number;
+  quantity: number;
+};
+
+export type User = {
   id: number;
   name: string;
-  alias: string;
-  powers: string;
-}
+  email: string;
+};
 
-export interface SuperheroMission {
-  id: number;
-  missionTitle: string;
-  superheroId: number;
-  description: string;
-  date: Date;
-}
-
-export interface SuperheroGadget {
-  id: number;
-  gadgetName: string;
-  usedBy: string;
-  description: string;
-}
+export type Cities = {
+  id: string;
+  name: string;
+  country_id: string;
+};
 
 export type Schema = {
-  global: Global;
-  superhero_profiles: SuperheroProfile[];
-  superhero_mission: SuperheroMission[];
-  superhero_gadget: SuperheroGadget[];
+  globalMetadata: Global;
+  events: Event[];
+  tickets: Ticket[];
+  users: User[];
+  cities: Cities[];
 };
 
 // The ENV wont read when seeding because I think it has no access.

@@ -54,23 +54,23 @@ const superHeroProfileData = [
   },
 ];
 
-export async function createSuperHeroes() {
-  try {
-    const createData = await client.request(
-      createItems("superhero_profiles", superHeroProfileData)
-    );
+// export async function createSuperHeroes() {
+//   try {
+//     const createData = await client.request(
+//       createItems("events", superHeroProfileData)
+//     );
 
-    return createData;
-  } catch (error) {
-    console.log({ error });
-  }
-}
+//     return createData;
+//   } catch (error) {
+//     console.log({ error });
+//   }
+// }
 
-createSuperHeroes()
-  .then(() => {
-    console.log(`Data successfully seeded 🌱`);
-  })
-  .catch((error) => {
-    console.error(`Error seeding data: ${error}`);
-    process.exit(1);
-  });
+// createSuperHeroes()
+//   .then(() => {
+//     console.log(`Data successfully seeded 🌱`);
+//   })
+//   .catch((error) => {
+//     console.error(`Error seeding data: ${error}`);
+//     process.exit(1);
+//   });
